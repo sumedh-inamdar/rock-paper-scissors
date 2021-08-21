@@ -16,13 +16,13 @@ function playRound(playerSelection, computerSelection) {
 
    let userInputIndex = validInputs.indexOf(playerSelection, 0);
    if (userInputIndex === -1) {
-       throw new Error("User Input is Invalid");
+       return "That was an invalid input. Try again.";
    }
    let playResult = lookUpTable[userInputIndex][validInputs.indexOf(computerSelection, 0)]; //Assume computer input is valid
 
    switch (playResult) {
         case 0:
-            return `Tie game! ${playerSelection} was played on both sides.`;
+            return `Tie game! ${playerSelection} was played on both sides. Let's try again`;
             break;
         case 1:
             return `You Win! ${playerSelection} beats ${computerSelection}.`;
@@ -31,5 +31,24 @@ function playRound(playerSelection, computerSelection) {
             return `You Lose! ${computerSelection} beats ${playerSelection}.`;
             break;
    }
-  
+}
+
+function game() {
+    let score = 0;
+    let round = 1;
+    let roundResult;
+    
+    while (round <= 5) {
+        userInput = prompt('Type your pick below (Rock, Paper, or Scissors)');
+        roundResult = playRound(userInput, computerPlay());
+        if (roundResult.includes('invalid')) {
+            console.log(roundResult);
+            continue;
+        }
+        console.log(`Round ${round}: ${roundResult}`);
+        score = roundResult.includes('Win') ? score + 1 : roundResult.includes('Lose') ? score - 1 : score;
+        round = roundResult.includes('Tie') ? round : round + 1;
+    }
+
+    console.log(`and the winner is....${score > 0 ? 'You! Good job!' : 'the Computer :( next time!'}`);
 }
