@@ -2,7 +2,7 @@
 
 The classic game of Rock-Paper-Scissors against the computer. 
 
-<a href="https://sumedh-inamdar.github.io/rock-paper-scissors/">Click here</a>
+-><a href="https://sumedh-inamdar.github.io/rock-paper-scissors/">Click here</a><-
 
 
 To do list:
