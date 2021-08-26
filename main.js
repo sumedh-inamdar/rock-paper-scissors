@@ -1,57 +1,77 @@
 let userScore = 0;
 let compScore = 0;
-let round = 0;
+const validInputs = ['Rock', 'Paper', 'Scissors'];
+
+//target nodes
+const RPSbuttons = document.querySelectorAll('.buttonContainer button');
+const resultContainer =  document.querySelector('.playResultContainer');
+const userScoreNode = document.querySelector('#userScore');
+const compScoreNode = document.querySelector('#compScore');
+const endGameContainerNode = document.querySelector('.endGameContainer');
+const endGameResultNode = document.querySelector('#endGameResult');
+const resetNode = document.querySelector('#reset');
 
 function computerPlay() {
-    let play = ['Rock', 'Paper', 'Scissors'];
     let select = Math.floor(3*Math.random());
-    return play[select];
+    return validInputs[select];
 }
 
 function playRound(playerSelection, computerSelection) {
-   playerSelection = playerSelection[0].toUpperCase() + playerSelection.slice(1).toLowerCase();
-   validInputs = ['Rock', 'Paper', 'Scissors'];
    lookUpTable = [[0, -1, 1], [1, 0, -1], [-1, 1, 0]]; // 0 = tie; 1 = win; 2 = lose. [[Rock user input] [Paper user input] [Scissors user input]]
 
    let userInputIndex = validInputs.indexOf(playerSelection, 0);
-   if (userInputIndex === -1) {
-       return "That was an invalid input. Try again.";
-   }
-   let playResult = lookUpTable[userInputIndex][validInputs.indexOf(computerSelection, 0)]; //Assume computer input is valid
+   let compInputIndex = validInputs.indexOf(computerSelection, 0);
+   let playResult = lookUpTable[userInputIndex][compInputIndex];
 
    switch (playResult) {
         case 0:
-            return `Tie game! ${playerSelection} was played on both sides. Let's try again`;
-            break;
+            return `Tie round! ${playerSelection} was played on both sides. Let's try again`;
         case 1:
-            return `You Win! ${playerSelection} beats ${computerSelection}.`;
-            break;
+            userScore++;
+            return `Round Won! ${playerSelection} beats ${computerSelection}.`;
         case -1:
-            return `You Lose! ${computerSelection} beats ${playerSelection}.`;
-            break;
+            compScore++;
+            return `Round Lost! ${computerSelection} beats ${playerSelection}.`;
    }
 }
 
-function updateScore(playResult) {
-    if (playResult.includes('Win')) {
-        userScore++;
-    } else if (playResult.includes('Lose')) {
-        compScore++;
-    }
-
-    
-
+function updateScore() {
+    userScoreNode.textContent = `Your score: ${userScore}`;
+    compScoreNode.textContent = `Computer score: ${compScore}`;
 }
 
-const buttons = document.querySelectorAll('button');
+function isGameOver() {
+    if (userScore >=5 || compScore >= 5) {
+        displayEndGame();
+        return true;
+    }
+}
+function displayEndGame() {
+    endGameResultNode.textContent = userScore >= 5 ? `Congrats on beating the computer! Here's your one of a kind RPS trophy 🏆!` : `You've been defeated by the computer 😿 . Next time!`;
+    endGameContainerNode.classList.add('active');
+}
 
-buttons.forEach( button => {
+function resetGame() {
+    userScore = 0;
+    compScore = 0;
+    updateScore();
+    resultContainer.textContent = '';
+    endGameResultNode.textContent = '';
+    endGameContainerNode.classList.remove('active');
+}
+
+RPSbuttons.forEach( button => {
     button.addEventListener('click', e => {
-        const playResult = playRound(e.id, computerPlay());
-        document.querySelector('.playResultContainer').textContent = playResult;
-        updateScore(playResult);
+        if (isGameOver()) {
+            return;
+        }
+        resultContainer.textContent = playRound(e.target.id, computerPlay());
+        updateScore();
+        isGameOver();
     });
 });
+
+resetNode.addEventListener('click', resetGame);
 
 
 
