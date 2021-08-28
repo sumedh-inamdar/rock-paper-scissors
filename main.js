@@ -10,6 +10,7 @@ const compScoreNode = document.querySelector('#compScore');
 const endGameContainerNode = document.querySelector('.endGameContainer');
 const endGameResultNode = document.querySelector('#endGameResult');
 const resetNode = document.querySelector('#reset');
+const year = document.querySelector('#year');
 
 function computerPlay() {
     let select = Math.floor(3*Math.random());
@@ -74,6 +75,7 @@ RPSbuttons.forEach( button => {
 
 resetNode.addEventListener('click', resetGame);
 
+year.textContent = new Date().getFullYear();
 
 
 

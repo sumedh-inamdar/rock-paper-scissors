@@ -102,3 +102,20 @@ main {
 .active {
     display: block;
 }
+
+/* Footer */
+footer {
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+}
+footer input {
+    display: inline;
+    height: 20px;
+    transition: transform 1s;
+}
+footer input:hover {
+    transform: scale(3) translate(0, -5px);
+}
