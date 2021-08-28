@@ -9,10 +9,10 @@ To do list (items marked done pushed to rps-ui branch):
 - Add document title
 - CSS Styling
   - [x] Add header
-  - [ ] Add footer
+  - [x] Add footer
   - [x] Add background
   - [x] Apply fonts and color to all text
   - [x] Center text and apply margins to divs
   - [x] Add images and style to buttons
   - [ ] Create popup for end game result
-  - [ ] Apply media queries (if needed)
+  - [x] Apply media queries (if needed)
