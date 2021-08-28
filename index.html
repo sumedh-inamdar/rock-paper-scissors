@@ -6,26 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100;200;600" rel="stylesheet">
     <script defer src="main.js"></script>
 </head>
 <body>
+    <header>
+        <div class="left">
+            <img src="images/RPSnew.png">
+            <h1><span class="light">ULTIMATE</span>RPS</h1>
+        </div>
+        <div class="right">
+            <div class="scoreContainer">
+                <span class="score">Score</span>
+                <div id="userScore">You: 0</div>
+                <div id="compScore">Computer: 0</div>
+            </div>
+        </div>
+    </header>
     <main>
-        <h1>Welcome to Ultimate RPS!</h1>
-        <h3>First to five wins. Take your pick.</h3>
+        <h3>First to five wins. Choose your weapon.</h3>
         <div class="buttonContainer">
-            <button id="Rock">Rock</button>
-            <button id="Paper">Paper</button>
-            <button id="Scissors">Scissors</button>
+            <span class="RPSbutton" data-type="Rock">
+                <input type="image" data-type="Rock" alt="Rock" src="images/rock.png">
+                <label data-type="Rock">Rock (R)</label>
+            </span>
+            <span class="RPSbutton" data-type="Paper">
+                <input type="image" data-type="Paper" alt="Paper" src="images/paper.png">
+                <label data-type="Paper">Paper (P)</label>
+            </span>
+            <span class="RPSbutton" data-type="Scissors">
+                <input type="image" data-type="Scissors" alt="Scissors" src="images/scissors.png">
+                <label data-type="Scissors">Scissors (S)</label>
+            </span>
         </div>
         <div class="playResultContainer"></div>
-        <div class="scoreContainer">
-            <div id="userScore">Your score: 0</div>
-            <div id="compScore">Computer score: 0</div>
-        </div>
         <div class="endGameContainer">
             <p id="endGameResult"></p>
             <button id="reset">Play again?</button>
         </div>
+        
     </main>
+    <footer>
+
+    </footer>
+    
 </body>
 </html>

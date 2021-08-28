@@ -3,7 +3,7 @@ let compScore = 0;
 const validInputs = ['Rock', 'Paper', 'Scissors'];
 
 //target nodes
-const RPSbuttons = document.querySelectorAll('.buttonContainer button');
+const RPSbuttons = document.querySelectorAll('.buttonContainer .RPSbutton');
 const resultContainer =  document.querySelector('.playResultContainer');
 const userScoreNode = document.querySelector('#userScore');
 const compScoreNode = document.querySelector('#compScore');
@@ -65,7 +65,8 @@ RPSbuttons.forEach( button => {
         if (isGameOver()) {
             return;
         }
-        resultContainer.textContent = playRound(e.target.id, computerPlay());
+        console.log(e.target);
+        resultContainer.textContent = playRound(e.target.dataset.type, computerPlay());
         updateScore();
         isGameOver();
     });
