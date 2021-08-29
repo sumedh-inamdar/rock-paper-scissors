@@ -14,43 +14,47 @@
 <body>
     <header>
         <div class="left">
-            <img src="images/RPSnew.png">
+            <img src="images/RPSnew.png" alt="RPS logo"> 
             <h1><span class="light">ULTIMATE</span>RPS</h1>
         </div>
         <div class="right">
             <div class="scoreContainer">
-                <span class="score">Score</span>
-                <div id="userScore">You: 0</div>
-                <div id="compScore">Computer: 0</div>
+                <div class="scoreLeft">Score</div>
+                <div class="scoreRight">
+                    <div id="userScore">You: 0</div>
+                    <div id="compScore">Computer: 0</div>
+                </div>
+                
             </div>
         </div>
     </header>
     <main>
         <h3>First to five wins. Choose your weapon.</h3>
         <div class="buttonContainer">
-            <span class="RPSbutton" data-type="Rock">
+            <span class="RPSbutton" data-type="Rock" title="Rock">
                 <input type="image" data-type="Rock" alt="Rock" src="images/rock.png">
                 <label data-type="Rock">Rock (R)</label>
             </span>
-            <span class="RPSbutton" data-type="Paper">
+            <span class="RPSbutton" data-type="Paper" title="Paper">
                 <input type="image" data-type="Paper" alt="Paper" src="images/paper.png">
                 <label data-type="Paper">Paper (P)</label>
             </span>
-            <span class="RPSbutton" data-type="Scissors">
+            <span class="RPSbutton" data-type="Scissors" title="Scissors">
                 <input type="image" data-type="Scissors" alt="Scissors" src="images/scissors.png">
                 <label data-type="Scissors">Scissors (S)</label>
             </span>
         </div>
         <div class="playResultContainer"></div>
-        <div class="endGameContainer">
-            <p id="endGameResult"></p>
-            <button id="reset">Play again?</button>
-        </div>
-        
+        <div class="endGameModal">
+            <div class="modal-content">
+                <p id="endGameResult"></p>
+                <button id="reset">Play again?</button>
+            </div>
+        </div> 
     </main>
     <footer>
         <small>&copy; Copyright <span id="year"></span>, sumedh-inamdar</small>
-        <a href="https://github.com/sumedh-inamdar" target="_blank">
+        <a href="https://github.com/sumedh-inamdar" target="_blank" title="Link to personal Github">
             <input type="image" alt="Github" src="images/Octocat.png">
         </a>
     </footer>

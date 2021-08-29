@@ -7,8 +7,8 @@ const RPSbuttons = document.querySelectorAll('.buttonContainer .RPSbutton');
 const resultContainer =  document.querySelector('.playResultContainer');
 const userScoreNode = document.querySelector('#userScore');
 const compScoreNode = document.querySelector('#compScore');
-const endGameContainerNode = document.querySelector('.endGameContainer');
-const endGameResultNode = document.querySelector('#endGameResult');
+const modal = document.querySelector('.endGameModal');
+const result = document.querySelector('#endGameResult');
 const resetNode = document.querySelector('#reset');
 const year = document.querySelector('#year');
 
@@ -48,8 +48,8 @@ function isGameOver() {
     }
 }
 function displayEndGame() {
-    endGameResultNode.textContent = userScore >= 5 ? `Congrats on beating the computer! Here's your one of a kind RPS trophy 🏆!` : `You've been defeated by the computer 😿 . Next time!`;
-    endGameContainerNode.classList.add('active');
+    result.textContent = userScore >= 5 ? `Congrats on beating the computer! Here's your one of a kind RPS trophy 🏆!` : `You've been defeated by the computer 😿 . Next time!`;
+    modal.style.display = 'block';
 }
 
 function resetGame() {
@@ -57,8 +57,8 @@ function resetGame() {
     compScore = 0;
     updateScore();
     resultContainer.textContent = '';
-    endGameResultNode.textContent = '';
-    endGameContainerNode.classList.remove('active');
+    result.textContent = '';
+    modal.style.display = 'none';
 }
 
 RPSbuttons.forEach( button => {
@@ -76,6 +76,13 @@ RPSbuttons.forEach( button => {
 resetNode.addEventListener('click', resetGame);
 
 year.textContent = new Date().getFullYear();
+
+// Close modal when user clicks outside
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+}
 
 
 
