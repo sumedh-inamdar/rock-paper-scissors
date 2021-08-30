@@ -14,5 +14,5 @@ To do list (items marked done pushed to rps-ui branch):
   - [x] Apply fonts and color to all text
   - [x] Center text and apply margins to divs
   - [x] Add images and style to buttons
-  - [ ] Create popup for end game result
+  - [x] Create popup for end game result
   - [x] Apply media queries (if needed)
