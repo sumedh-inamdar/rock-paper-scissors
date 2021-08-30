@@ -26,7 +26,7 @@ function playRound(playerSelection, computerSelection) {
 
    switch (playResult) {
         case 0:
-            return `Tie round! ${playerSelection} was played on both sides. Let's try again`;
+            return `Tie round! ${playerSelection} was played on both sides. Let's try again.`;
         case 1:
             userScore++;
             return `Round Won! ${playerSelection} beats ${computerSelection}.`;
@@ -37,8 +37,8 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function updateScore() {
-    userScoreNode.textContent = `Your score: ${userScore}`;
-    compScoreNode.textContent = `Computer score: ${compScore}`;
+    userScoreNode.textContent = `You: ${userScore}`;
+    compScoreNode.textContent = `Computer: ${compScore}`;
 }
 
 function isGameOver() {
