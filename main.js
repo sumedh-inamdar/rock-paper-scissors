@@ -36,6 +36,15 @@ function playRound(playerSelection, computerSelection) {
    }
 }
 
+function eventAction(userAction, compAction) {
+    if (isGameOver()) {
+        return;
+    }
+    resultContainer.textContent = playRound(userAction, compAction);
+    updateScore();
+    isGameOver();
+}
+
 function updateScore() {
     userScoreNode.textContent = `You: ${userScore}`;
     compScoreNode.textContent = `Computer: ${compScore}`;
@@ -61,16 +70,30 @@ function resetGame() {
     modal.style.display = 'none';
 }
 
+//event handler for button press
 RPSbuttons.forEach( button => {
     button.addEventListener('click', e => {
-        if (isGameOver()) {
-            return;
-        }
-        console.log(e.target);
-        resultContainer.textContent = playRound(e.target.dataset.type, computerPlay());
-        updateScore();
-        isGameOver();
+        eventAction(e.target.dataset.type, computerPlay());
     });
+});
+
+//event handler for keydown press
+window.addEventListener('keydown', e => {
+    let userInput;
+    switch (e.code) {
+        case 'KeyR':
+            userInput = 'Rock';
+            break;
+        case 'KeyP':
+            userInput = 'Paper';
+            break;
+        case 'KeyS':
+            userInput = 'Scissors';
+            break;
+        default:
+            return;
+    }
+    eventAction(userInput, computerPlay());
 });
 
 resetNode.addEventListener('click', resetGame);

@@ -1,11 +1,11 @@
 # rock-paper-scissors
 
-The classic game of Rock-Paper-Scissors against the computer. 
+The classic game of Rock-Paper-Scissors against the computer.
 
 -><a href="https://sumedh-inamdar.github.io/rock-paper-scissors/">Click here</a><-
 
-
 To do list (items marked done pushed to rps-ui branch):
+
 - Add document title
 - CSS Styling
   - [x] Add header
@@ -16,3 +16,4 @@ To do list (items marked done pushed to rps-ui branch):
   - [x] Add images and style to buttons
   - [x] Create popup for end game result
   - [x] Apply media queries (if needed)
+  - [x] Add event listener for keydown
